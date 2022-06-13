@@ -29,14 +29,30 @@ function ola() {
     };
 };
 
+class Puntajes {
+    constructor(nombre, puntaje) {
+        this.nombre = nombre;
+        this.puntaje = puntaje;
+    }
+}
+
+const historial = [];
+
 let pregunta = prompt("Hola, si queres conocer la calidad de la ola que estas por surfear presiona enter, para salir ingresa NO.").toUpperCase();
+
 while (pregunta != "NO") {
     ola();
     let puntaje = (wind + swell + period) / 3;
+    let nombre = prompt("ingresa el nombre con el que quieres guardar el puntaje en el historial");
+    const puntajeGuardado = new Puntajes(nombre, puntaje);
+    historial.push(puntajeGuardado);
     if (isNaN(puntaje)) {
-        alert("Datos mal ingresado, prueba con un numero")
+        alert("Datos mal ingresado, prueba con un numero");
     } else {
         alert("el puntaje de la ola es de " + puntaje);
     }
+    for (const guardado of historial) {
+        alert("Se guardo en el historial tu puntaje de " + guardado.puntaje + " con el nombre de " + guardado.nombre);
+    };
     pregunta = prompt("Hola, si queres conocer la calidad de la ola que estas por surfear presiona enter, para salir ingresa NO.");
 };

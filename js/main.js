@@ -46,13 +46,20 @@ while (pregunta != "NO") {
     let nombre = prompt("ingresa el nombre con el que quieres guardar el puntaje en el historial");
     const puntajeGuardado = new Puntajes(nombre, puntaje);
     historial.push(puntajeGuardado);
+
     if (isNaN(puntaje)) {
         alert("Datos mal ingresado, prueba con un numero");
     } else {
         alert("el puntaje de la ola es de " + puntaje);
     }
+
     for (const guardado of historial) {
         alert("Se guardo en el historial tu puntaje de " + guardado.puntaje + " con el nombre de " + guardado.nombre);
     };
+
+    const buscar = historial.find((el) => el.nombre === prompt("Para buscar un puntaje en el historial, ingresa el nombre con el que lo guardaste"));
+
+    alert("buscate el puntaje " + buscar.nombre + " de " + buscar.puntaje)
+
     pregunta = prompt("Hola, si queres conocer la calidad de la ola que estas por surfear presiona enter, para salir ingresa NO.");
 };

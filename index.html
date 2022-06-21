@@ -5,14 +5,54 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Javascript</title>
+    <title>Kikiwai Surf</title>
 </head>
 
 <body>
-    <h1>Javascript</h1>
-    <h2>Proyecto Kikiwai</h2>
-    <h3>Juan Colucci</h3>
+    <main>
+        <section>
+            <h1>Kikiwai Surf</h1>
+            <p> En este sitio podras conocer cual es la calidad de la ola que estas por surfear, solo ingresando algunos datos del pronostico.</p>
+        </section>
 
+        <section>
+            <h2>Calculador de olas</h2>
+            <div>
+                <label for="wind">Ingrese un número segun la direccion del viento: 1. offshore 2. sideshore 3. onshore</label>
+                <input type="number" name="wind" id="wind">
+            </div>
+            <div>
+                <label for="swell">Ángulo que forma el swell con la costa, 0 a 90, siendo 90 lo mas perpendicular a la costa posible</label>
+                <input type="number" name="swell" id="swell">
+            </div>
+            <div>
+                <label for="period">Periodo de olas en segundos</label>
+                <input type="number" name="period" id="period">
+            </div>
+            <div>
+                <label for="nombre">Nombre con el que quiere guardar el puntaje en el historial</label>
+                <input type="text" name="nombre" id="nombre">
+            </div>
+            <input type="button" id="calcular" value="Calcular">
+            <h3 id="resultado">Resultado: </h3>
+        </section>
+
+        <section>
+            <h3>Historial</h3>
+            <ul id="guardados">
+
+            </ul>
+        </section>
+        <section>
+            <h3>Buscar en el historial</h3>
+            <label for="busqueda">Busca por nombre</label>
+            <input type="text" name="busqueda" id="busqueda">
+            <input type="button" id="buscar" value="Buscar">
+            <ul id="filtrados">
+
+            </ul>
+        </section>
+    </main>
 
     <script src="./js/main.js"></script>
 </body>

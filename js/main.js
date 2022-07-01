@@ -1,16 +1,19 @@
+// Variables
 let btnCalcular = document.getElementById("calcular");
+let btnBuscar = document.getElementById("buscar");
 
-let wind = parseInt(document.getElementById("wind").value)
-let swell = parseInt(document.getElementById("swell").value)
-let period = parseInt(document.getElementById("period").value)
+let wind
+let swell
+let period
 
-let puntaje 
+let puntaje
 let nombre
 
 let resultado1
 let resultado2
 let resultado3
 
+// Función para evaluar los parametros
 function ola() {
     if (wind == 1) {
         resultado1 = 5
@@ -38,6 +41,8 @@ function ola() {
         resultado3 = 5
     };
 }
+
+// Contructor de objetos y array para guardarlos
 class Puntajes {
     constructor(nombre, puntaje) {
         this.nombre = nombre;
@@ -46,6 +51,7 @@ class Puntajes {
 }
 const historial = [];
 
+// Eventos botones "calcular" y "buscar"
 btnCalcular.addEventListener("click", () => {
     wind = document.getElementById("wind").value
     swell = document.getElementById("swell").value
@@ -54,31 +60,32 @@ btnCalcular.addEventListener("click", () => {
     ola()
     puntaje = (resultado1 + resultado2 + resultado3) / 3;
     const puntajeGuardado = new Puntajes(nombre, puntaje);
-    historial.push(puntajeGuardado);
 
-    let guardados = document.getElementById("guardados")
-    guardados.innerHTML = ""
-    for (const guardado of historial) {
-        let li = document.createElement("li");
-        li.innerText = `${guardado.nombre} ${guardado.puntaje}`
-        guardados.appendChild(li)
-    };
-    
-    let resultado = document.getElementById("resultado")
-    resultado.innerText = "Resultado: " + puntaje;
+    if (isNaN(puntaje)) {
+        alert("Dato mal ingresado")
+    } else {
+        historial.push(puntajeGuardado);
+        const almacenado = JSON.stringify(puntajeGuardado);
+        localStorage.setItem(`${puntajeGuardado.nombre}`, `${almacenado}`);
+
+        let guardados = document.getElementById("guardados")
+        guardados.innerHTML = ""
+        for (const guardado of historial) {
+            let li = document.createElement("li");
+            li.innerText = `${guardado.nombre} ${guardado.puntaje}`
+            guardados.appendChild(li)
+        };
+
+        let resultado = document.getElementById("resultado")
+        resultado.innerText = `Resultado: ${puntaje}`
+    }
 });
-
-let btnBuscar = document.getElementById("buscar");
-let busqueda
 
 btnBuscar.addEventListener("click", () => {
-    busqueda = document.getElementById("busqueda").value;
-    const filtradora = historial.filter((el) => el.nombre === busqueda)
-    filtrados.innerHTML = ""
-    for (const filtrado of filtradora) {
-        let li = document.createElement("li");
-        li.innerText = `${filtrado.nombre} ${filtrado.puntaje}`
-        filtrados.appendChild(li)
-    };
-});
+    let busqueda = document.getElementById("busqueda").value;
+    buscado = JSON.parse(localStorage.getItem(busqueda));
 
+    let li = document.createElement("li");
+    li.innerText = `${buscado.nombre} ${buscado.puntaje}`
+    buscados.appendChild(li)
+});

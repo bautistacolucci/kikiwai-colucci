@@ -56,5 +56,3 @@ function guardar() {
 
 calculador();
 guardar();
-
-historial.forEach()

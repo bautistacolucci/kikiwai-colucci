@@ -1,8 +1,13 @@
-alert("Calculador de calidad de olas, califica las olas del 1 al 5");
-let wind = parseInt(prompt("Ingrese un número segun la direccion del viento: 1. offshore 2. sideshore 3. onshore"));
-let swell = parseInt(prompt("Ángulo que forma el swell con la costa, 0 a 90"));
-let period = parseInt(prompt("Periodo de olas en segundos"));
-let nombre = prompt("nombre con el que desea guardar el puntaje");
+let wind = parseInt(document.getElementById("wind").value)
+let swell = parseInt(document.getElementById("swell").value)
+let period = parseInt(document.getElementById("period").value)
+/* let nombre = document.getElementById("date").value */
+
+let btnCalcular = document.getElementById("calcular")
+let btnGuardar = document.getElementById("guardar")
+let btnBuscar = document.getElementById("buscar")
+
+let pResultado = document.getElementById("resultado")
 
 let resultado1
 let resultado2
@@ -44,15 +49,29 @@ class guardarPuntaje {
     }
 };
 
-function calculador() {
+btnCalcular.addEventListener("click", calcular);
+function calcular(e){
+    e.preventDefault();
     puntaje = (resultado1 + resultado2 + resultado3) / 3;
-    alert("el puntaje de la ola es " + puntaje)
+    pResultado.innerHTML=`La calidad de la ola es de ${puntaje} estrellas`
 };
 
+btnGuardar.addEventListener("click", guardar)
 function guardar() {
     let guardado = new guardarPuntaje(nombre, puntaje)
     historial.push(guardado)   
 };
 
-calculador();
-guardar();
+/* function calcular() {
+    puntaje = (resultado1 + resultado2 + resultado3) / 3;
+    alert("el puntaje de la ola es " + puntaje)
+}; 
+
+function guardar() {
+    let guardado = new guardarPuntaje(nombre, puntaje)
+    historial.push(guardado)   
+};
+*/
+
+/* calculador();
+guardar(); */

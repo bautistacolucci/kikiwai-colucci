@@ -5,19 +5,55 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Javascript</title>
+    <title>Kikiwai Surf</title>
 </head>
 
 <body>
-    <h1>Javascript</h1>
-    <h2>Calculador de calidad de olas</h2>
-    <form action="">
-        <input type="text">
-        <input type="text">
-        <input type="text">
-    </form>
+    <main>
+        <h1>Kikiwai Surf</h1>
+        <h2>Calculador de calidad de olas</h2>
+        <section>
+            <p> Ingresá los siguientes datos para conocer la calidad de la ola.</p>
+            <form action="">
+                <div>
+                    <label for="dia">Dia</label>
+                    <input type="date" id="dia" name="dia">
+                </div>
+                <div>
+                    <p>Ingrese un número segun la direccion del viento: 1. offshore 2. sideshore 3. onshore</p>
+                    <label for="wind">Wind</label>
+                    <input type="text" id="wind" name="wind">
+                </div>
+                <div>
+                    <p>Ángulo que forma el swell con la costa, 0 a 90</p>
+                    <label for="swell">Swell</label>
+                    <input type="text" id="swell" name="swell">
+                </div>
+                <div>
+                    <p>Periodo de olas en segundos</p>
+                    <label for="period">Period</label>
+                    <input type="text" id="period" name="period">
+                </div>
+                <button id="calcular">Calcular</button>
+                <button id="guardar">Guardar</button>
+                
+            </form>
+            <div>
+                <p id="resultado"></p>
+            </div>
+        </section>
+        <section>
+            <h3>Historial</h3>
+            <div>
+                <label for="busqueda"></label>
+                <input type="date" name="busqueda" id="busqueda">
+                <button id="buscar">Buscar</button>
+                <p>
 
-
+                </p>
+            </div>
+        </section>
+    </main>
     <script src="./js/main.js"></script>
 </body>
 

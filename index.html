@@ -16,8 +16,13 @@
             <p> Ingresá los siguientes datos para conocer la calidad de la ola.</p>
             <form action="">
                 <div>
-                    <label for="dia">Dia</label>
-                    <input type="date" id="dia" name="dia">
+                    <p>Ingrese nombre para guardar el puntaje</p>
+                    <label for="name">Nombre</label>
+                    <input type="text" id="name" name="name">
+                </div>
+                <div>
+                    <label for="date">Dia</label>
+                    <input type="date" id="date" name="date">
                 </div>
                 <div>
                     <p>Ingrese un número segun la direccion del viento: 1. offshore 2. sideshore 3. onshore</p>
@@ -45,11 +50,18 @@
         <section>
             <h3>Historial</h3>
             <div>
-                <label for="busqueda"></label>
-                <input type="date" name="busqueda" id="busqueda">
-                <button id="buscar">Buscar</button>
-                <p>
+                <label for="buscarFecha">Buscar por fecha</label>
+                <input type="date" name="buscarFecha" id="buscarFecha">
+                <button id="btnFecha">Buscar</button>
 
+                <label for="buscarNombre">Buscar por nombre</label>
+                <input type="text" name="buscarNombre" id="buscarNombre">
+                <button id="btnNombre">Buscar</button>
+
+                <p>
+                    <ul id="historial">
+
+                    </ul>
                 </p>
             </div>
         </section>

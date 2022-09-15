@@ -38,7 +38,15 @@ function calcular(e){
     swell = parseInt(document.getElementById("swell").value)
     period = parseInt(document.getElementById("period").value)
 
-    if (wind == 1) {
+    wind == 1 ? resultado1 = 5 : wind == 2 ? resultado1 = 2.5 : resultado1 == 1;
+    swell >= 70 ? resultado2 = 5 : swell >= 50 ? resultado2 = 2.5 : resultado2 == 1.5;
+    period >= 8 ? resultado3 = 5 : period >= 6 ? resultado3 = 2.5 : resultado3 == 1.5;
+
+    console.log(resultado1);
+    console.log(resultado2);
+    console.log(resultado3);
+
+    /* if (wind == 1) {
         resultado1 = 5
     } else if (wind == 2) {
         resultado1 = 2.5
@@ -62,7 +70,7 @@ function calcular(e){
         resultado3 = 3.5
     } else if (period >= 9) {
         resultado3 = 5
-    };
+    }; */
    
     puntaje = (resultado1 + resultado2 + resultado3) / 3;
     textResultado.innerHTML=`La calidad de la ola es de ${puntaje} estrellas`

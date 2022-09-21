@@ -57,6 +57,15 @@ function guardar(e) {
     historial.push(guardado)
     let historialJson = JSON.stringify(historial)
     localStorage.setItem("historial", historialJson)
+
+    Toastify({
+
+        text: "Guardado con exito",
+        
+        duration: 2000,
+        stopOnFocus: true,
+        
+        }).showToast();
 };
 
 btnFecha.addEventListener("click", buscarPorFecha)

@@ -7,80 +7,90 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Kikiwai Surf</title>
     <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/toastify-js/src/toastify.min.css">
+    <link rel="stylesheet" href="css/style.css">
 </head>
 
 <body>
     <main>
-        <h1>Kikiwai Surf</h1>
-        <h2>Calculador de calidad de olas</h2>
-        <section>
-            <p> Ingresá los siguientes datos para conocer la calidad de la ola.</p>
-            <form action="">
-                <div>
-                    <p>Ingrese nombre para guardar el puntaje</p>
-                    <label for="name">Nombre</label>
-                    <input type="text" id="name" name="name">
+        <section class="banner">
+            <h1>Kikiwai Surf</h1>
+            <h2>Calculador de calidad de olas</h2>
+        </section>
+        <section class="section">
+            <p class="section__p"> Ingresá los siguientes datos para conocer la calidad de la ola.</p>
+            <form action="POST" class="form">
+                <p>Ingrese nombre para guardar el puntaje</p>
+                <div class="form__div">
+                    <input type="text" id="name" name="name" class="form__input" required>
+                    <label for="name" class="form__label">Nombre</label>
                 </div>
-                <div>
-                    <label for="date">Dia</label>
-                    <input type="date" id="date" name="date">
+                <div class="form__div">
+                    <input type="date" id="date" name="date" class="form__input">
+                    <label for="date" class="form__label"></label>
                 </div>
-                <div>
-                    <p>Ingrese un número segun la direccion del viento: 1. offshore 2. sideshore 3. onshore</p>
-                    <label for="wind">Wind</label>
-                    <input type="text" id="wind" name="wind">
+                <div class="form__div">
+                    <!-- <p>Ingrese un número segun la direccion del viento: 1. offshore 2. sideshore 3. onshore</p> -->
+                    <input type="text" id="wind" name="wind"class="form__input" required>
+                    <label for="wind" class="form__label">Wind</label>
                 </div>
-                <div>
-                    <p>Ángulo que forma el swell con la costa, 0 a 90</p>
-                    <label for="swell">Swell</label>
-                    <input type="text" id="swell" name="swell">
+                <div class="form__div">
+                    <!-- <p>Ángulo que forma el swell con la costa, 0 a 90</p> -->
+                    <input type="text" id="swell" name="swell"class="form__input" required>
+                    <label for="swell" class="form__label">Swell</label>
                 </div>
-                <div>
-                    <p>Periodo de olas en segundos</p>
-                    <label for="period">Period</label>
-                    <input type="text" id="period" name="period">
+                <div class="form__div"> 
+                    <!-- <p>Periodo de olas en segundos</p>   -->
+                    <input type="text" id="period" name="period"class="form__input" required>
+                    <label for="period" class="form__label">Period</label>
                 </div>
-                <button id="calcular">Calcular</button>
-                <button id="guardar">Guardar</button>
-                
+                <div class="buttons">
+                    <button type="submit" id="calcular" class="form__button">Calcular</button>
+                    <button id="guardar" class="form__button">Guardar</button>
+                </div>
             </form>
-            <div>
+            <div class="result">
                 <p id="resultado"></p>
             </div>
         </section>
-        <section>
+        <div class="banner__historial">
             <h3>Historial</h3>
-            <div>
-                <label for="buscarFecha">Buscar por fecha</label>
-                <input type="date" name="buscarFecha" id="buscarFecha">
-                <button id="btnFecha">Buscar</button>
+        </div>
+        <section class="section">
+                <label for="buscarFecha" class="section__label">Buscar por fecha</label>
+                <input type="date" name="buscarFecha" id="buscarFecha" class="section__input">
+                <button id="btnFecha" class="btnBuscar">Buscar</button>
 
-                <label for="buscarNombre">Buscar por nombre</label>
-                <input type="text" name="buscarNombre" id="buscarNombre">
-                <button id="btnNombre">Buscar</button>
+                <label for="buscarNombre" class="section__label">Buscar por nombre</label>
+                <input type="text" name="buscarNombre" id="buscarNombre" class="section__input">
+                <button id="btnNombre" class="btnBuscar">Buscar</button>
 
-                <p>
+                <div class="result">
                     <ul id="historial">
 
                     </ul>
-                </p>
-            </div>
+                </div>
+            
         </section>
-        <section>
+        <div class="banner__tools">
+            <h3>Herramientas</h3>
+        </div>
+        <section class="section">
             <h3>Coordenadas</h3>
-            <label for="buscarCoord">Buscar coordenadas de tu ciudad</label>
-            <input type="text" name="buscarCoord" id="buscarCoord">
-            <button id="btnCoord">Buscar</button>
-            <div id="textCoord"></div>
+            <label for="buscarCoord" class="section__label">Buscar coordenadas de tu ciudad</label>
+            <input type="text" name="buscarCoord" id="buscarCoord" class="section__input">
+            <button id="btnCoord" class="btnBuscar">Buscar</button>
+            <div id="textCoord" class="result"></div>
         </section>
-        <section>
+        <section class="section">
             <h3>Clima</h3>
-            <label for="longitud">Longitud</label>
-            <input type="text" name="longitud" id="longitud">
-            <label for="latitud">Latitud</label>
-            <input type="text" name="latitud" id="latitud">
-            <button id="btnClima">Buscar</button>
-            <div id="textClima"></div>
+            <label for="longitud" class="section__label">Longitud</label>
+            <input type="text" name="longitud" id="longitud" class="section__input">
+
+            <label for="latitud" class="section__label">Latitud</label>
+            <input type="text" name="latitud" id="latitud" class="section__input">
+
+            <button id="btnClima" class="btnBuscar">Buscar</button>
+            <div id="textClima" class="result"></div>
         </section>
     </main>
     <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/toastify-js"></script>

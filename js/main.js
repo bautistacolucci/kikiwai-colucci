@@ -49,7 +49,7 @@ function calcular(e) {
   resultado3 = period >= 8 ? 5 : period >= 6 ? 2.5 : 1.5;
 
   puntaje = (resultado1 + resultado2 + resultado3) / 3;
-  textResultado.innerHTML = `La calidad de la ola es de ${puntaje} estrellas`;
+  textResultado.innerHTML = `Puntaje ${puntaje} estrellas`;
 }
 
 btnGuardar.addEventListener("click", guardar);
